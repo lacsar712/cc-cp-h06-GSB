@@ -32,8 +32,6 @@ def claim_one(conn):
 
 def finish(conn, reading_id: int, temp_c: float) -> None:
     verdict, reason = judge_temp(temp_c)
-    from h06_extra_trap import after_write
-    verdict, reason = after_write(verdict, reason)
     conn.execute(
         """
         UPDATE probe_readings
